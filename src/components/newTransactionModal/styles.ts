@@ -46,3 +46,49 @@ export const Container = styled.form`
         }
     }
 `;
+
+export const TransactionTyperContainer = styled.div`
+    margin: 1rem 0;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap:0.5rem;
+`;
+
+interface RadioBoxPros{
+    isActive: boolean;
+    activeColor: 'red' | 'green';
+}
+
+const colors = {
+    red: 'rgba(246, 0, 0, 0.2)',
+    green: 'rgba(3, 246, 0, 0.2)'
+}
+
+export const RadioBox = styled.button<RadioBoxPros>`
+    height: 4rem;
+    border: 1px solid #d7d7d7;
+    border-radius: 0.25rem;
+
+    background: ${(props) => props.isActive ? colors[props.activeColor] : 'transparent'};
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    transition: border-color 0.2s;
+    &:hover{
+        border-color: #aaa;
+    }
+
+    img{
+        width:20px;
+        height: 20px;
+    }
+
+    span{
+        display: inline-block;
+        margin-left: 1rem;
+        font-size: 1rem;
+        color: var(--text-title);
+    }
+`;
